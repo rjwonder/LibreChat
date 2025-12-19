@@ -2920,13 +2920,17 @@ html {
 }
 /* ============================================
    AI NOGGIN BRAND THEME FOR LIBRECHAT
-   v4 - AGGRESSIVE DARK MODE TARGETING
+   v5 - FLAT DARK MODE (NO BOXES)
    
    Brand Colors:
    - Cream Background: #F8F7F3
    - Robot Blue (accent): #0986C2
-   - Navy (text/dark bg): #0F314E
-   - Dark Navy (dark bg): #0F2537
+   - Navy (text): #0F314E
+   
+   Dark Mode Colors:
+   - Sidebar: #1A3650 (solid)
+   - Main area: #0F2537 (solid, EVERYTHING)
+   - Text/buttons: #0986C2 (robot blue)
    
    REPLACE any previous AI Noggin CSS with this
    Add to the END of client/src/style.css
@@ -2936,130 +2940,150 @@ html {
    ☀️ LIGHT MODE - Send button robot blue
    ============================================ */
 
-:root button[class*="bg-green"],
-:root [class*="bg-green-500"],
-:root [class*="bg-green-600"],
-button[class*="rounded-full"][class*="bg-"] {
+button[class*="bg-green"],
+[class*="bg-green-500"],
+[class*="bg-green-600"],
+button[class*="rounded-full"][class*="bg-"]:not(.dark *) {
   background-color: #0986C2 !important;
   color: #FFFFFF !important;
 }
 
 /* ============================================
-   🌙 DARK MODE - THE WORKS
+   🌙 DARK MODE - FLAT & SIMPLE
    ============================================ */
 
-/* === SIDEBAR - ROBOT BLUE === */
-/* Target the left navigation area specifically */
-.dark .bg-gray-900,
-.dark .bg-gray-850,
-.dark .bg-gray-800,
-.dark [class*="bg-gray-9"],
-.dark [class*="bg-gray-8"]:not(main):not([class*="message"]),
-.dark nav,
-.dark aside,
-.dark [class*="sidebar"],
-.dark [class*="Sidebar"],
-.dark [class*="side-bar"],
-.dark [class*="nav-container"],
-.dark [class*="left-panel"],
-.dark [class*="LeftPanel"],
-.dark > div > div:first-child,
-.dark [class*="w-64"],
-.dark [class*="w-260"],
-.dark [class*="fixed"][class*="left"],
-.dark [class*="drawer"] {
-  background-color: #0986C2 !important;
-  background: #0986C2 !important;
-}
-
-/* Sidebar text white */
-.dark nav *,
-.dark aside *,
-.dark [class*="sidebar"] *,
-.dark [class*="Sidebar"] *,
-.dark [class*="side-bar"] *,
-.dark [class*="w-64"] *,
-.dark [class*="left-panel"] * {
-  color: #FFFFFF !important;
-}
-
-.dark nav svg,
-.dark aside svg,
-.dark [class*="sidebar"] svg {
-  color: #FFFFFF !important;
-  fill: #FFFFFF !important;
-}
-
-/* Sidebar hover */
-.dark nav button:hover,
-.dark nav a:hover,
-.dark aside button:hover,
-.dark [class*="sidebar"] button:hover,
-.dark [class*="sidebar"] a:hover {
-  background-color: #077AAD !important;
-}
-
-/* === MAIN CHAT AREA - DARK NAVY === */
+/* === GLOBAL RESET: Make EVERYTHING dark navy === */
+.dark,
 .dark body,
 .dark #root,
-.dark #root > div,
+.dark #root > *,
+.dark #root > * > *,
+.dark #root > * > * > *,
 .dark main,
-.dark [role="main"],
-.dark [class*="main"],
-.dark [class*="chat-"],
-.dark [class*="Chat"],
-.dark [class*="conversation"],
-.dark [class*="Conversation"],
-.dark [class*="messages-container"],
-.dark [class*="flex-1"],
-.dark .flex-1,
-.dark [class*="bg-gray-50"],
-.dark [class*="bg-gray-100"],
-.dark [class*="bg-white"],
-.dark [class*="dark:bg-gray"] {
+.dark main *,
+.dark [class*="bg-"],
+.dark [class*="background"],
+.dark div,
+.dark section,
+.dark article,
+.dark aside,
+.dark header,
+.dark footer,
+.dark nav {
   background-color: #0F2537 !important;
   background: #0F2537 !important;
 }
 
-/* Override any inline or computed backgrounds on main content */
-.dark [class*="relative"][class*="flex"][class*="h-full"],
-.dark [class*="overflow-y-auto"],
-.dark [class*="pb-"][class*="pt-"] {
-  background-color: #0F2537 !important;
+/* === SIDEBAR OVERRIDE: Lighter navy === */
+.dark nav,
+.dark aside,
+.dark [class*="sidebar"],
+.dark [class*="Sidebar"],
+.dark [class*="side-panel"],
+.dark [class*="left-panel"],
+.dark [class*="nav-container"],
+.dark [class*="w-64"],
+.dark [class*="w-260"],
+.dark [class*="fixed"][class*="left-0"],
+.dark [class*="drawer"],
+.dark [data-side="left"],
+.dark > div > div:first-child {
+  background-color: #1A3650 !important;
+  background: #1A3650 !important;
 }
 
-/* === MESSAGE BUBBLES === */
+/* Sidebar children - also flat */
+.dark nav *,
+.dark aside *,
+.dark [class*="sidebar"] *,
+.dark [class*="Sidebar"] *,
+.dark [class*="w-64"] * {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Sidebar TEXT - Robot Blue */
+.dark nav,
+.dark nav *,
+.dark aside,
+.dark aside *,
+.dark [class*="sidebar"],
+.dark [class*="sidebar"] *,
+.dark [class*="Sidebar"] *,
+.dark [class*="w-64"],
+.dark [class*="w-64"] * {
+  color: #0986C2 !important;
+}
+
+.dark nav svg,
+.dark aside svg,
+.dark [class*="sidebar"] svg,
+.dark [class*="w-64"] svg {
+  color: #0986C2 !important;
+  fill: #0986C2 !important;
+}
+
+/* Sidebar hover - subtle */
+.dark nav button:hover,
+.dark nav a:hover,
+.dark aside button:hover,
+.dark [class*="sidebar"] button:hover,
+.dark [class*="sidebar"] a:hover,
+.dark [class*="w-64"] button:hover {
+  background-color: rgba(9, 134, 194, 0.2) !important;
+}
+
+/* === MESSAGE BUBBLES - FLAT (no background) === */
 .dark [class*="message"],
 .dark [class*="Message"],
 .dark [class*="markdown"],
 .dark [class*="prose"],
 .dark [class*="rounded-"][class*="px-"],
-.dark [class*="bg-gray-"][class*="rounded"] {
-  background-color: #1A3650 !important;
-}
-
-/* User message bubble - slightly different shade */
+.dark [class*="bg-gray-"][class*="rounded"],
 .dark [class*="user-message"],
-.dark [class*="human"],
-.dark [data-message-author-role="user"] {
-  background-color: #264059 !important;
+.dark [class*="assistant-message"],
+.dark [data-message-author-role] {
+  background-color: transparent !important;
+  background: transparent !important;
 }
 
-/* === TEXT COLORS === */
-.dark main p,
-.dark main span,
-.dark main div,
+/* === THOUGHTS/THINKING - Blend with background === */
+.dark [class*="thinking"],
+.dark [class*="Thinking"],
+.dark [class*="thought"],
+.dark [class*="Thought"] {
+  background-color: #0F2537 !important;
+  background: #0F2537 !important;
+  color: #F8F7F3 !important;
+}
+
+/* === TEXT COLORS - Cream for readability === */
+.dark p,
+.dark span,
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6,
+.dark li,
+.dark td,
+.dark th,
+.dark label,
 .dark [class*="prose"] *,
 .dark [class*="markdown"] *,
 .dark [class*="message"] p,
 .dark [class*="message"] span,
-.dark [class*="Message"] p,
-.dark h1, .dark h2, .dark h3,
-.dark [class*="title"],
-.dark [class*="text-gray"],
-.dark [class*="text-black"],
-.dark [class*="text-white"] {
+.dark [class*="text-"],
+.dark main p,
+.dark main span,
+.dark main div {
   color: #F8F7F3 !important;
+}
+
+/* Override sidebar text back to robot blue */
+.dark nav p,
+.dark nav span,
+.dark aside p,
+.dark aside span,
+.dark [class*="sidebar"] p,
+.dark [class*="sidebar"] span {
+  color: #0986C2 !important;
 }
 
 /* === INPUT BOX === */
@@ -3067,14 +3091,10 @@ button[class*="rounded-full"][class*="bg-"] {
 .dark input[type="text"],
 .dark [class*="textarea"],
 .dark [class*="composer"],
-.dark [class*="input-"],
-.dark [class*="Input"],
 .dark [contenteditable],
-.dark [class*="ProseMirror"],
-.dark [class*="text-input"],
-.dark form [class*="rounded"],
-.dark [class*="border"][class*="rounded"][class*="bg-"] {
+.dark [class*="ProseMirror"] {
   background-color: #1A3650 !important;
+  background: #1A3650 !important;
   color: #F8F7F3 !important;
   border-color: #3A5A7A !important;
 }
@@ -3084,7 +3104,7 @@ button[class*="rounded-full"][class*="bg-"] {
   color: #8BA5BB !important;
 }
 
-/* === SEND BUTTON - NAVY === */
+/* === SEND BUTTON - ROBOT BLUE === */
 .dark button[class*="bg-green"],
 .dark [class*="bg-green-500"],
 .dark [class*="bg-green-600"],
@@ -3093,28 +3113,28 @@ button[class*="rounded-full"][class*="bg-"] {
 .dark [class*="submit"],
 .dark button[type="submit"],
 .dark [class*="absolute"][class*="right"][class*="rounded-full"] {
-  background-color: #0F314E !important;
+  background-color: #0986C2 !important;
+  background: #0986C2 !important;
   color: #FFFFFF !important;
 }
 
 .dark button[class*="bg-green"]:hover,
 .dark button[type="submit"]:hover {
-  background-color: #1A4A6E !important;
+  background-color: #077AAD !important;
 }
 
-/* === HEADER BAR === */
+/* === HEADER/TOP BAR === */
 .dark header,
 .dark [class*="header"],
 .dark [class*="Header"],
-.dark [class*="top-bar"],
 .dark [class*="sticky"][class*="top"] {
   background-color: #0F2537 !important;
+  background: #0F2537 !important;
   border-color: #1A3650 !important;
 }
 
-/* Agent selector button - robot blue */
-.dark header button,
-.dark [class*="header"] button[class*="rounded"],
+/* Agent selector button */
+.dark header button[class*="rounded"],
 .dark [class*="model-select"],
 .dark [class*="endpoint"] {
   background-color: #0986C2 !important;
@@ -3129,10 +3149,15 @@ button[class*="rounded-full"][class*="bg-"] {
 .dark [class*="popover"],
 .dark [class*="Popover"],
 .dark [role="menu"],
-.dark [role="listbox"],
-.dark [class*="absolute"][class*="z-"][class*="bg-"] {
+.dark [role="listbox"] {
   background-color: #1A3650 !important;
   border-color: #3A5A7A !important;
+}
+
+/* === BORDERS - Subtle === */
+.dark [class*="border-"],
+.dark [class*="divide-"] > * {
+  border-color: #1A3650 !important;
 }
 
 /* === SCROLLBARS === */
@@ -3150,23 +3175,9 @@ button[class*="rounded-full"][class*="bg-"] {
   border-radius: 4px;
 }
 
-.dark ::-webkit-scrollbar-thumb:hover {
-  background: #077AAD;
-}
-
-/* === FOCUS & SELECTION === */
-.dark ::selection {
-  background-color: rgba(9, 134, 194, 0.4);
-  color: #FFFFFF;
-}
-
-.dark :focus-visible {
-  outline: 2px solid #0986C2 !important;
-  outline-offset: 2px;
-}
-
-/* === ICONS === */
-.dark svg:not(nav svg):not(aside svg):not([class*="sidebar"] svg) {
+/* === ICONS (non-sidebar) === */
+.dark main svg,
+.dark [class*="message"] svg {
   color: #8BA5BB !important;
 }
 
@@ -3174,31 +3185,14 @@ button[class*="rounded-full"][class*="bg-"] {
   color: #FFFFFF !important;
 }
 
-/* === BORDERS === */
-.dark [class*="border-gray"],
-.dark [class*="border-black"],
-.dark [class*="divide-gray"] > * {
-  border-color: #3A5A7A !important;
+/* === FOCUS === */
+.dark :focus-visible {
+  outline: 2px solid #0986C2 !important;
+  outline-offset: 2px;
 }
 
-/* === THINKING/THOUGHTS INDICATOR - Keep robot blue === */
-.dark [class*="thinking"],
-.dark [class*="Thinking"],
-.dark [class*="thought"],
-.dark [class*="Thought"] {
-  background-color: #0986C2 !important;
-  color: #FFFFFF !important;
-}
-
-/* === TOOL ICONS (right side) === */
-.dark [class*="tool"],
-.dark [class*="action-button"],
-.dark [class*="icon-button"] {
-  color: #8BA5BB !important;
-}
-
-.dark [class*="tool"]:hover,
-.dark [class*="action-button"]:hover {
-  color: #FFFFFF !important;
-  background-color: #1A3650 !important;
+/* === SELECTION === */
+.dark ::selection {
+  background-color: rgba(9, 134, 194, 0.4);
+  color: #FFFFFF;
 }
