@@ -2920,204 +2920,225 @@ html {
 }
 /* ============================================
    AI NOGGIN BRAND THEME FOR LIBRECHAT
-   v3 - LIGHT MODE DEFAULT + DARK MODE STYLING
+   v4 - AGGRESSIVE DARK MODE TARGETING
    
    Brand Colors:
    - Cream Background: #F8F7F3
    - Robot Blue (accent): #0986C2
    - Navy (text/dark bg): #0F314E
-   
-   STRATEGY: No prefers-color-scheme media queries!
-   This forces LIGHT MODE as default for all users.
-   Dark mode only activates when user clicks toggle
-   (which adds .dark class to HTML element)
+   - Dark Navy (dark bg): #0F2537
    
    REPLACE any previous AI Noggin CSS with this
    Add to the END of client/src/style.css
    ============================================ */
 
 /* ============================================
-   ☀️ LIGHT MODE (DEFAULT FOR ALL USERS)
+   ☀️ LIGHT MODE - Send button robot blue
    ============================================ */
 
-/* Send/Enter button - Robot Blue */
-:root button[class*="submit"],
-:root button[class*="send"],
-:root button[type="submit"],
-:root [class*="send-button"],
-:root [data-testid*="send"],
-:root .absolute.rounded-full,
-:root [class*="bg-green"] {
+:root button[class*="bg-green"],
+:root [class*="bg-green-500"],
+:root [class*="bg-green-600"],
+button[class*="rounded-full"][class*="bg-"] {
   background-color: #0986C2 !important;
   color: #FFFFFF !important;
 }
 
-:root button[class*="submit"]:hover,
-:root button[class*="send"]:hover,
-:root button[type="submit"]:hover {
-  background-color: #077AAD !important;
-}
-
 /* ============================================
-   🌙 DARK MODE (Only when user toggles)
-   Uses .dark class - NOT media queries!
+   🌙 DARK MODE - THE WORKS
    ============================================ */
 
-/* SIDEBAR - Robot Blue */
-.dark nav,
-.dark [class*="sidebar"],
-.dark aside,
-.dark [class*="nav-"],
-.dark [class*="side-panel"],
+/* === SIDEBAR - ROBOT BLUE === */
+/* Target the left navigation area specifically */
 .dark .bg-gray-900,
 .dark .bg-gray-850,
+.dark .bg-gray-800,
+.dark [class*="bg-gray-9"],
+.dark [class*="bg-gray-8"]:not(main):not([class*="message"]),
+.dark nav,
+.dark aside,
+.dark [class*="sidebar"],
+.dark [class*="Sidebar"],
+.dark [class*="side-bar"],
+.dark [class*="nav-container"],
+.dark [class*="left-panel"],
+.dark [class*="LeftPanel"],
+.dark > div > div:first-child,
+.dark [class*="w-64"],
+.dark [class*="w-260"],
+.dark [class*="fixed"][class*="left"],
 .dark [class*="drawer"] {
   background-color: #0986C2 !important;
   background: #0986C2 !important;
 }
 
-/* Sidebar text - white for contrast on robot blue */
+/* Sidebar text white */
 .dark nav *,
-.dark [class*="sidebar"] *,
 .dark aside *,
-.dark [class*="nav-"] a,
-.dark [class*="nav-"] span,
-.dark [class*="nav-"] p,
-.dark [class*="nav-"] svg {
+.dark [class*="sidebar"] *,
+.dark [class*="Sidebar"] *,
+.dark [class*="side-bar"] *,
+.dark [class*="w-64"] *,
+.dark [class*="left-panel"] * {
   color: #FFFFFF !important;
 }
 
-/* Sidebar hover states - slightly darker blue */
+.dark nav svg,
+.dark aside svg,
+.dark [class*="sidebar"] svg {
+  color: #FFFFFF !important;
+  fill: #FFFFFF !important;
+}
+
+/* Sidebar hover */
+.dark nav button:hover,
 .dark nav a:hover,
-.dark [class*="sidebar"] a:hover,
-.dark [class*="sidebar"] button:hover {
+.dark aside button:hover,
+.dark [class*="sidebar"] button:hover,
+.dark [class*="sidebar"] a:hover {
   background-color: #077AAD !important;
 }
 
-/* MAIN CHAT AREA - Dark Navy */
+/* === MAIN CHAT AREA - DARK NAVY === */
+.dark body,
+.dark #root,
+.dark #root > div,
 .dark main,
+.dark [role="main"],
+.dark [class*="main"],
+.dark [class*="chat-"],
+.dark [class*="Chat"],
 .dark [class*="conversation"],
-.dark [class*="chat-container"],
-.dark [class*="main-content"],
-.dark [class*="messages"],
+.dark [class*="Conversation"],
+.dark [class*="messages-container"],
+.dark [class*="flex-1"],
 .dark .flex-1,
-.dark [role="main"] {
+.dark [class*="bg-gray-50"],
+.dark [class*="bg-gray-100"],
+.dark [class*="bg-white"],
+.dark [class*="dark:bg-gray"] {
   background-color: #0F2537 !important;
   background: #0F2537 !important;
 }
 
-/* Overall body/app background - dark navy */
-.dark body,
-.dark #root,
-.dark [class*="app"],
-.dark .bg-gray-800,
-.dark .bg-gray-900:not(nav):not([class*="sidebar"]) {
+/* Override any inline or computed backgrounds on main content */
+.dark [class*="relative"][class*="flex"][class*="h-full"],
+.dark [class*="overflow-y-auto"],
+.dark [class*="pb-"][class*="pt-"] {
   background-color: #0F2537 !important;
 }
 
-/* SEND BUTTON IN DARK MODE - Navy Blue */
-.dark button[class*="submit"],
-.dark button[class*="send"],
+/* === MESSAGE BUBBLES === */
+.dark [class*="message"],
+.dark [class*="Message"],
+.dark [class*="markdown"],
+.dark [class*="prose"],
+.dark [class*="rounded-"][class*="px-"],
+.dark [class*="bg-gray-"][class*="rounded"] {
+  background-color: #1A3650 !important;
+}
+
+/* User message bubble - slightly different shade */
+.dark [class*="user-message"],
+.dark [class*="human"],
+.dark [data-message-author-role="user"] {
+  background-color: #264059 !important;
+}
+
+/* === TEXT COLORS === */
+.dark main p,
+.dark main span,
+.dark main div,
+.dark [class*="prose"] *,
+.dark [class*="markdown"] *,
+.dark [class*="message"] p,
+.dark [class*="message"] span,
+.dark [class*="Message"] p,
+.dark h1, .dark h2, .dark h3,
+.dark [class*="title"],
+.dark [class*="text-gray"],
+.dark [class*="text-black"],
+.dark [class*="text-white"] {
+  color: #F8F7F3 !important;
+}
+
+/* === INPUT BOX === */
+.dark textarea,
+.dark input[type="text"],
+.dark [class*="textarea"],
+.dark [class*="composer"],
+.dark [class*="input-"],
+.dark [class*="Input"],
+.dark [contenteditable],
+.dark [class*="ProseMirror"],
+.dark [class*="text-input"],
+.dark form [class*="rounded"],
+.dark [class*="border"][class*="rounded"][class*="bg-"] {
+  background-color: #1A3650 !important;
+  color: #F8F7F3 !important;
+  border-color: #3A5A7A !important;
+}
+
+.dark textarea::placeholder,
+.dark input::placeholder {
+  color: #8BA5BB !important;
+}
+
+/* === SEND BUTTON - NAVY === */
+.dark button[class*="bg-green"],
+.dark [class*="bg-green-500"],
+.dark [class*="bg-green-600"],
+.dark button[class*="rounded-full"][class*="bg-"],
+.dark [class*="send"],
+.dark [class*="submit"],
 .dark button[type="submit"],
-.dark [class*="send-button"],
-.dark [data-testid*="send"],
-.dark .absolute.rounded-full,
-.dark [class*="bg-green"] {
+.dark [class*="absolute"][class*="right"][class*="rounded-full"] {
   background-color: #0F314E !important;
   color: #FFFFFF !important;
 }
 
-.dark button[class*="submit"]:hover,
-.dark button[class*="send"]:hover,
+.dark button[class*="bg-green"]:hover,
 .dark button[type="submit"]:hover {
   background-color: #1A4A6E !important;
 }
 
-/* Input area background - slightly lighter navy */
-.dark [class*="input-area"],
-.dark [class*="composer"],
-.dark textarea,
-.dark [class*="text-input"] {
-  background-color: #1A3650 !important;
-  color: #F8F7F3 !important;
-  border-color: #264059 !important;
-}
-
-/* Chat message bubbles */
-.dark [class*="message"] {
-  background-color: #1A3650 !important;
-}
-
-/* Text colors in dark mode - cream/white */
-.dark main p,
-.dark main span,
-.dark main div,
-.dark [class*="message"] p,
-.dark [class*="message"] span,
-.dark [class*="prose"] {
-  color: #F8F7F3 !important;
-}
-
-/* Agent name/title in center */
-.dark h1,
-.dark h2,
-.dark [class*="title"] {
-  color: #F8F7F3 !important;
-}
-
-/* Placeholder text */
-.dark input::placeholder,
-.dark textarea::placeholder {
-  color: #A8B5C0 !important;
-}
-
-/* Links in dark mode */
-.dark a:not(nav a):not([class*="sidebar"] a) {
-  color: #1A9FD9 !important;
-}
-
-.dark a:not(nav a):not([class*="sidebar"] a):hover {
-  color: #3DB8ED !important;
-}
-
-/* Header bar - dark navy to match main area */
+/* === HEADER BAR === */
 .dark header,
-.dark [class*="header"] {
+.dark [class*="header"],
+.dark [class*="Header"],
+.dark [class*="top-bar"],
+.dark [class*="sticky"][class*="top"] {
   background-color: #0F2537 !important;
-  border-bottom: 1px solid #1A3650 !important;
+  border-color: #1A3650 !important;
 }
 
-/* Agent selector button in header - robot blue accent */
-.dark [class*="agent"] button,
-.dark header button[class*="agent"] {
+/* Agent selector button - robot blue */
+.dark header button,
+.dark [class*="header"] button[class*="rounded"],
+.dark [class*="model-select"],
+.dark [class*="endpoint"] {
   background-color: #0986C2 !important;
   color: #FFFFFF !important;
 }
 
-/* Dropdown menus */
+/* === DROPDOWNS & MENUS === */
 .dark [class*="dropdown"],
+.dark [class*="Dropdown"],
 .dark [class*="menu"],
+.dark [class*="Menu"],
 .dark [class*="popover"],
-.dark [role="menu"] {
+.dark [class*="Popover"],
+.dark [role="menu"],
+.dark [role="listbox"],
+.dark [class*="absolute"][class*="z-"][class*="bg-"] {
   background-color: #1A3650 !important;
-  border: 1px solid #264059 !important;
+  border-color: #3A5A7A !important;
 }
 
-/* Selection highlight */
-.dark ::selection {
-  background-color: rgba(9, 134, 194, 0.4);
-  color: #FFFFFF;
-}
-
-/* Focus rings - robot blue */
-.dark :focus-visible {
-  outline: 2px solid #0986C2;
-  outline-offset: 2px;
-}
-
-/* Scrollbar styling for dark mode */
+/* === SCROLLBARS === */
 .dark ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 
 .dark ::-webkit-scrollbar-track {
@@ -3133,13 +3154,51 @@ html {
   background: #077AAD;
 }
 
-/* Right sidebar icons (if visible) */
-.dark [class*="right-panel"],
-.dark [class*="tool-panel"] {
-  background-color: #0F2537 !important;
+/* === FOCUS & SELECTION === */
+.dark ::selection {
+  background-color: rgba(9, 134, 194, 0.4);
+  color: #FFFFFF;
 }
 
-.dark [class*="right-panel"] svg,
-.dark [class*="tool-panel"] svg {
-  color: #A8B5C0 !important;
+.dark :focus-visible {
+  outline: 2px solid #0986C2 !important;
+  outline-offset: 2px;
+}
+
+/* === ICONS === */
+.dark svg:not(nav svg):not(aside svg):not([class*="sidebar"] svg) {
+  color: #8BA5BB !important;
+}
+
+.dark button:hover svg {
+  color: #FFFFFF !important;
+}
+
+/* === BORDERS === */
+.dark [class*="border-gray"],
+.dark [class*="border-black"],
+.dark [class*="divide-gray"] > * {
+  border-color: #3A5A7A !important;
+}
+
+/* === THINKING/THOUGHTS INDICATOR - Keep robot blue === */
+.dark [class*="thinking"],
+.dark [class*="Thinking"],
+.dark [class*="thought"],
+.dark [class*="Thought"] {
+  background-color: #0986C2 !important;
+  color: #FFFFFF !important;
+}
+
+/* === TOOL ICONS (right side) === */
+.dark [class*="tool"],
+.dark [class*="action-button"],
+.dark [class*="icon-button"] {
+  color: #8BA5BB !important;
+}
+
+.dark [class*="tool"]:hover,
+.dark [class*="action-button"]:hover {
+  color: #FFFFFF !important;
+  background-color: #1A3650 !important;
 }
