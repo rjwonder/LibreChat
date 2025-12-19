@@ -2918,3 +2918,115 @@ html {
 .sharepoint-picker-bg{
   background-color: #F5F5F5;
 }
+/* ============================================
+   AI NOGGIN BRAND THEME FOR LIBRECHAT
+   
+   Colors extracted from logo:
+   - Cream Background: #F8F7F3
+   - Robot Blue (accent): #0986C2
+   - Navy (text): #0F314E
+   
+   Add this to the END of client/src/style.css
+   ============================================ */
+
+/* ☀️ LIGHT MODE - Warm cream theme */
+:root {
+  /* Background colors - cream family */
+  --gray-20: #FDFCFA;
+  --gray-50: #F8F7F3;      /* Main cream from logo */
+  --gray-100: #F0EFE9;
+  --gray-200: #E5E4DE;
+  --gray-300: #D1D0CA;
+  
+  /* Text colors - navy family */
+  --gray-500: #3D5A73;
+  --gray-600: #264059;
+  --gray-700: #0F314E;     /* Main navy from logo */
+  --gray-800: #0A2338;
+  --gray-900: #061620;
+  
+  /* Accent/interactive - robot blue */
+  --gizmo-gray-500: #0986C2;
+  --gizmo-gray-600: #077AAD;
+  
+  /* Surface colors */
+  --surface-primary: #F8F7F3;
+  --surface-secondary: #FFFFFF;
+  --surface-tertiary: #F0EFE9;
+  
+  /* Text on surfaces */
+  --text-primary: #0F314E;
+  --text-secondary: #3D5A73;
+  --text-tertiary: #5A7A94;
+}
+
+/* 🌙 DARK MODE - Deep navy with warm accents */
+.dark {
+  /* Background colors - deep navy family */
+  --gray-20: #0D1F2D;
+  --gray-50: #0F2537;
+  --gray-100: #132B41;
+  --gray-200: #1A3650;
+  --gray-300: #264059;
+  
+  /* Text colors - cream/light family */
+  --gray-500: #A8B5C0;
+  --gray-600: #C5CED6;
+  --gray-700: #E0E6EB;
+  --gray-800: #F0F3F5;
+  --gray-900: #F8F7F3;     /* Cream for headings */
+  
+  /* Accent/interactive - robot blue (slightly brighter for dark mode) */
+  --gizmo-gray-500: #1A9FD9;
+  --gizmo-gray-600: #0986C2;
+  
+  /* Surface colors */
+  --surface-primary: #0F2537;
+  --surface-secondary: #132B41;
+  --surface-tertiary: #1A3650;
+  
+  /* Text on surfaces */
+  --text-primary: #F8F7F3;
+  --text-secondary: #C5CED6;
+  --text-tertiary: #A8B5C0;
+}
+
+/* ============================================
+   COMPONENT-SPECIFIC OVERRIDES
+   ============================================ */
+
+/* Sidebar styling */
+.dark [class*="sidebar"],
+.dark nav {
+  background-color: #0D1F2D;
+}
+
+/* Chat bubble accents */
+[class*="assistant"] {
+  border-left: 3px solid #0986C2;
+}
+
+/* Button hover states */
+button:hover {
+  border-color: #0986C2;
+}
+
+/* Links */
+a {
+  color: #0986C2;
+}
+
+a:hover {
+  color: #077AAD;
+}
+
+/* Selection highlight */
+::selection {
+  background-color: rgba(9, 134, 194, 0.3);
+}
+
+/* Focus rings - accessibility */
+:focus-visible {
+  outline: 2px solid #0986C2;
+  outline-offset: 2px;
+}
